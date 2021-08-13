@@ -1,6 +1,6 @@
 # Mirrored-rainbow
 
-Coed programmed in Visual Studio using PlatformIO
+Coed programmed in Visual Studio using PlatformIO.
 attiny85 microcontroller used.
 WS2812B 144ppm.
 
