@@ -1,0 +1,29 @@
+#include <Arduino.h>
+#include <FastLED.h>
+
+#define NUM_LEDS  16
+#define LED_PIN   1
+
+CRGB leds[NUM_LEDS];
+
+uint8_t hue = 0;
+
+void setup() {
+  FastLED.addLeds<WS2812B, LED_PIN, GRB>(leds, NUM_LEDS);
+  FastLED.setBrightness(50);
+}
+
+
+void loop() {
+
+  // fill half the strip with a rainbow
+  fill_rainbow( leds, NUM_LEDS / 2, millis() / 5 );
+
+  // mirror data to the other half
+  for (uint8_t i = 0; i < NUM_LEDS / 2; i++) {
+    leds[NUM_LEDS - 1 - i] = leds[i];
+  }
+
+  FastLED.show();
+
+}
